@@ -2,7 +2,7 @@
   become: true
   become_user: root
   tasks:
-   - name: clone a repo
+  - name: clone a repo
     git: repo=https://github.com/Pranayinfo/newproject.git dest=/tmp/mygitrepo1
   - name: build docker file
     command: chdir=/tmp/mygitrepo1 docker build -t myapp:0.01.test1 .

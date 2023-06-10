@@ -2,15 +2,16 @@
   become: true
   become_user: root
   tasks:
-    - name: Clone a repo
-      git:
-        repo: https://github.com/Pranayinfo/projCert.git
-        dest: /tmp/mygitrepo1
+  - name: Clone a repo
+    git:
+     repo: https://github.com/Pranayinfo/projCert.git
+     dest: /tmp/mygitrepo1
 
-    - name: Build Docker image
-      command: docker build -t myapp:0.01.test1 /tmp/mygitrepo1
-      args:
-        chdir: /tmp/mygitrepo1
+  - name: Build Docker image
+    command: docker build -t myapp:0.01.test1 /tmp/mygitrepo1/subdirectory
+    args:
+     chdir: /tmp/mygitrepo1/subdirectory
 
-    - name: Create container
-      command: docker run -itd -P myapp:0.01.test1
+
+  - name: Create container
+    command: docker run -itd -P myapp:0.01.test1

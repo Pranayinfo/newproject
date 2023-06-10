@@ -3,7 +3,7 @@
   become_user: root
   tasks:
   - name: clone a repo
-    git: https://github.com/Pranayinfo/projCert.git
+    git: repo=https://github.com/Pranayinfo/projCert.git
   - name: build docker file
     command: chdir=/tmp/mygitrepo1 docker build -t myapp:0.01.test1 .
   - name: create container
